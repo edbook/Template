@@ -8,7 +8,6 @@ For ubuntu based distors run the following commands in the terminal:
 sudo apt-get install python3-sphinx
 sudo apt-get install python3-sphinx-rtd-theme
 sudo apt-get install python3-setuptools
-sudo apt-get install python3-sagecell
 sudo apt-get install git
 sudo apt-get install pandoc
 git clone https://github.com/edbook/template
