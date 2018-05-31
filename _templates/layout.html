@@ -1,5 +1,7 @@
 {% extends "!layout.html" %}
 {% block extrahead %}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="../../resizegg.js"></script>
     
     <!-- ADD YOUR GOOGLE ANALYTICS TRACKING CODE HERE-->
     <script>
@@ -42,7 +44,7 @@
 		}
 	</style>
 
-
+<!-- hoverrole.py css code 
 	<script src="http://sagecell.sagemath.org/static/jquery.min.js"></script>
 	<script src="http://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
     
@@ -59,11 +61,15 @@
 
     <script>sagecell.makeSagecell({inputLocation: ".osage", languages:["octave"], evalButtonText: buttonText});</script>
 
+    <script>sagecell.makeSagecell({inputLocation: ".psage", languages:["python"], evalButtonText: buttonText});</script>
+
 	<script>sagecell.makeSagecell({inputLocation: ".sageAuto", evalButtonText:buttonText, autoeval: true});</script>
     
     <script>sagecell.makeSagecell({inputLocation: ".rsageAuto", languages:["r"], evalButtonText: buttonText, autoeval: true});</script>
 
     <script>sagecell.makeSagecell({inputLocation: ".osageAuto", languages:["octave"], evalButtonText: buttonText, autoeval: true});</script>
+
+    <script>sagecell.makeSagecell({inputLocation: ".psageAuto", languages:["python"], evalButtonText: buttonText, autoeval: true});</script>
 	
     <script>sagecell.makeSagecell({inputLocation: ".sageAutoHidden", evalButtonText :buttonText, autoeval: true, hide: ["evalButton"], template: sagecell.templates.minimal});</script>
     
@@ -71,6 +77,8 @@
 
     <script>sagecell.makeSagecell({inputLocation: ".osageAutoHidden", languages:["octave"], evalButtonText:buttonText, autoeval: true, hide: ["evalButton"], template: sagecell.templates.minimal});</script>
 
+    <script>sagecell.makeSagecell({inputLocation: ".psageAutoHidden", languages:["python"], evalButtonText:buttonText, autoeval: true, hide: ["evalButton"], template: sagecell.templates.minimal});</script>
+-->
 
 	<style type="text/css">
 		.sagecell .CodeMirror-scroll {

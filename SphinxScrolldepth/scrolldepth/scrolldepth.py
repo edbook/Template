@@ -25,7 +25,7 @@ def tex_scrolldepth_depart(self,node):
 	pass
 
 def append_scrolldepth_nodes(app,doctree,fromdocname):
-	if not app.buildername == 'html':
+	if not app.builder == 'html':
 		return
 	# Create and insert scrolldepth nodes for each subsection.
 	parent =  ""

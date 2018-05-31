@@ -30,13 +30,15 @@ import shlex
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+
 extensions = [
     'sphinx.ext.todo',
     # For some reason there seems to be a conflict between mathjax and 
     # other extensions causing non-proper rendering of LaTeX math code.
     # To avoid these errors we use the extension pngmath.
     # For the document to render properly dvipng must be uninstalled from your system
-    'sphinx.ext.pngmath',
+    #'sphinx.ext.mathjax',
+    'sphinxcontrib-katex.sphinxcontrib.katex',
     #'hieroglyph',
     #  hieroglyph is used to generate html slides, needs to be installed for use,
     #  see https://github.com/nyergler/hieroglyph
@@ -45,10 +47,11 @@ extensions = [
     'toggleblock.toggleBlock',
     # Extension for toggleable blocks of text (click to show/hide).
     # See README.txt in toggleblock-extension folder.
-    'sagecell.sagecell',
+    'sagecell-extension.sagecell.sagecell',
     # Extension for embedding sage cells (https://sagecell.sagemath.org/).
     # See README.txt in sagecell-extension folder. 
     'hoverrole.hoverrole',
+
     # Extension for providing Icelandic to English translation of mathematical terms
     # on mouse-over. See README in hoverrole folder.
     'scrolldepth.scrolldepth'
@@ -57,8 +60,14 @@ extensions = [
 
 # The mathjax path needs to be set to https in order to work on notendur.hi.is, it can be changed here to suit other needs 
 # (http://sphinx-doc.org/latest/ext/math.html#confval-mathjax_path)
-#mathjax_path = "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-mathjax_path = "MathJax.js"
+#mathjax_path = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+#mathjax_path = "MathJax.js"
+
+katex_path = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js'
+katex_render = 'http://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/contrib/auto-render.min.js'
+render_math = 'rendermath.js'
+
+katex_css = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css'
 
 
 # Add any paths that contain templates here, relative to this directory.
@@ -189,7 +198,7 @@ html_static_path = ['_static']
 # typographically correct entities.
 #html_use_smartypants = True
 
-html_add_permalinks = True
+#html_add_permalinks = True
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}
 
@@ -296,6 +305,8 @@ latex_logo  = '_static/hi_horiz_raunvisindadeild.png'
 
 # If false, no module index is generated.
 #latex_domain_indices = True
+
+
 
 
 # -- Options for manual page output ---------------------------------------

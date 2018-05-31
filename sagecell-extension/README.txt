@@ -22,7 +22,11 @@ Example of usage::
 
 Options
 ======
-The lang option is set to 'r' if the code is to be interpreted as R code and 'octave' if the code is to be interpreted as Octave, otherwise the code is interpreted as Sage.
+The lang option is set to 
+'r' if the code is to be interpreted as R code and 
+'octave' if the code is to be interpreted as Octave and 
+'python' if the code is to be interpreted as Python, 
+otherwise the code is interpreted as Sage.
 
 Example:
 

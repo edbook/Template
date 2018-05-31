@@ -3,8 +3,10 @@
 
 from docutils import nodes
 from docutils.parsers.rst import directives
-from sphinx.util.compat import Directive
-
+try:
+    from sphinx.util.compat import Directive
+except ImportError:
+    from docutils.parsers.rst import Directive
 
 
 class sagecell(nodes.General, nodes.Element): 
@@ -12,10 +14,10 @@ class sagecell(nodes.General, nodes.Element):
 
 
 def html_visit_sagecell_node(self, node):
-    # the code is either in R, Sage or Octave
+    # the code is either in R, Sage, Octave or Python
     # if auto is True the code is run automatically (without having to press evaluation button)
     # if hidecode is True the code is not displayed 
-    if node["lang"] == "r":
+    if node["lang"].lower() == "r":
         if node["auto"]:
             if node["hidecode"]:
                 self.body.append("<div class='rsageAutoHidden'>")
@@ -24,7 +26,7 @@ def html_visit_sagecell_node(self, node):
         else:
             self.body.append("<div class='rsage'>")
     
-    elif node["lang"] == "octave":
+    elif node["lang"].lower() == "octave":
         if node["auto"]:
             if node["hidecode"]:
                 self.body.append("<div class='osageAutoHidden'>")
@@ -32,6 +34,15 @@ def html_visit_sagecell_node(self, node):
                 self.body.append("<div class='osageAuto'>")
         else:
             self.body.append("<div class='osage'>")
+
+    elif node["lang"].lower() == "python":
+        if node["auto"]:
+            if node["hidecode"]:
+                self.body.append("<div class='psageAutoHidden'>")
+            else:
+                self.body.append("<div class='psageAuto'>")
+        else:
+            self.body.append("<div class='psage'>")
 
     else:        
         if node["auto"]:
@@ -141,7 +152,7 @@ class SageCell(Directive):
 
 def setup(app):
     app.add_node(sagecell, html = (html_visit_sagecell_node, html_depart_sagecell_node), latex = (latex_visit_sagecell_node, latex_depart_sagecell_node))
-    app.add_directive("sagecell", SageCell)
+    app.add_directive('sagecell', SageCell)
 
 
 

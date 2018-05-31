@@ -3,8 +3,10 @@
 
 from docutils import nodes
 from docutils.parsers.rst import directives
-from sphinx.util.compat import Directive
-
+try:
+    from sphinx.util.compat import Directive
+except ImportError:
+    from docutils.parsers.rst import Directive
 
 
 class sagecell(nodes.General, nodes.Element): 
@@ -140,8 +142,8 @@ class SageCell(Directive):
 
 
 def setup(app):
-    app.add_node(sagecell, html = (html_visit_sagecell_node, html_depart_sagecell_node), latex = (latex_visit_sagecell_node, latex_depart_sagecell_node))
-    app.add_directive("sagecell", SageCell)
+    app.add_node(sagecell, html = (html_visit_sagecell_node, html_depart_sagecell_node), latex = (tex_visit_sagecell_node, tex_depart_sagecell_node))
+    app.add_directive('sagecell', SageCell)
 
 
 
