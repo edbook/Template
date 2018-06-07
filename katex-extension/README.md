@@ -14,6 +14,17 @@ $ python setup.py build
 $ sudo python setup.py install
 ```
 
+Add the following lines to the conf.py file in the root directory
+
+```python
+katex_path = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js'
+katex_render = 'http://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/contrib/auto-render.min.js'
+render_math = 'rendermath.js'
+katex_css = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css'
+```
+
+Finally move rendermath.js to the /_static directory in the root of your project
+
 ## How to use it
 
 Has the same functionality as MathJax
@@ -24,7 +35,7 @@ Has the same functionality as MathJax
 - `\label`
 - `\nonumber`
 - `{\cal (*)}`
-- `\` - single backslash spacing
+- `\` - single backslash spacing - note that version 0.10.0 eliminates this problem but is still in alpha testing
 - `\begin{align} - \end{align}`
 - `\root (*) \of (*)`
 
@@ -33,7 +44,7 @@ List of substitutions which work but are open for modification
 - (*) is used to represent inputs, when multiple they are to be interpreted respectively in the New column
 - "-" means it can be left empty without affecting the html endproduct
 - clean_rst.py is a script with regular expressions which finds and replaces with the following solutions.
-- To run just navigate to /katex-extension/ and run 'python(3) clean_rst.py'
+- To run just navigate to /katex-extension and run 'python(3) clean_rst.py'
 
 <center>
 
