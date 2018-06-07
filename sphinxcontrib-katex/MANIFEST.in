@@ -1,3 +1,0 @@
-include LICENSE.txt
-global-include requirements.txt
-recursive-include sphinxcontrib *.css
