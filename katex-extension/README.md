@@ -32,6 +32,8 @@ Has the same functionality as MathJax
 List of substitutions which work but are open for modification
 - (*) is used to represent inputs, when multiple they are to be interpreted respectively in the New column
 - "-" means it can be left empty without affecting the html endproduct
+- clean_rst.py is a script with regular expressions which finds and replaces with the following solutions.
+- To run just navigate to /katex-extension/ and run 'python(3) clean_rst.py'
 
 <center>
 
@@ -46,3 +48,4 @@ List of substitutions which work but are open for modification
 | `\root (*) \of (*)` | `\sqrt[(*)]{(*)}`      |
 
 </center>
+
