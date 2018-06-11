@@ -22,17 +22,24 @@ There should now be a template folder in /home/user. The following folders are i
 * hoverrole
 * katex-extension
 
-In each of these folders (except sagecell-extension) run the following commands: 
+In each of these folders run the following commands: 
 ```bash
 python3 setup.py build
 sudo python3 setup.py install
 ```
-In sagecell-extension run `sudo python3 setup.py install --user` instead of `sudo python3 setup.py install`
+
 Finally, go to the template folder and run the command:
 ```bash
 make html
 ```
+If you get: `WARNING: extension 'sagecell.sagecell' has no setup() function; is it really a Sphinx extension module?`, go to sagecell-extension and run: 
+```
+sudo python3 setup.py install --user
+```
+
 You can now edit the template in /template/chapter01.rst and compile the html file with the make html command. The html pages are in /template/_build/html.
+
+Once you have edited your content run `make clean` before you build again with `make html`
 
 Sphinx
 ======
