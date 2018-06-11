@@ -33,42 +33,44 @@ import shlex
 
 extensions = [
     'sphinx.ext.todo',
-    # For some reason there seems to be a conflict between mathjax and 
-    # other extensions causing non-proper rendering of LaTeX math code.
-    # To avoid these errors we use the extension pngmath.
     # For the document to render properly dvipng must be uninstalled from your system
     #'sphinx.ext.mathjax',
-    'sphinxcontrib-katex.sphinxcontrib.katex',
+    'katex.katex',
+    # Substitute for mathjax, renders math much faster
+    # Note: katex extension must come before sagecell to work properly
     #'hieroglyph',
-    #  hieroglyph is used to generate html slides, needs to be installed for use,
-    #  see https://github.com/nyergler/hieroglyph
+    # hieroglyph is used to generate html slides, needs to be installed for use,
+    # see https://github.com/nyergler/hieroglyph
     'ggbextension.ggb',
-    #  Extension for embedding geogebra applets, see README.txt in ggbextension folder
+    # Extension for embedding geogebra applets, see README.txt in ggbextension folder
     'toggleblock.toggleBlock',
     # Extension for toggleable blocks of text (click to show/hide).
     # See README.txt in toggleblock-extension folder.
-    'sagecell-extension.sagecell.sagecell',
+    'sagecell.sagecell',
     # Extension for embedding sage cells (https://sagecell.sagemath.org/).
     # See README.txt in sagecell-extension folder. 
+    # Note: sagecell must not be listed before katex.katex
     'hoverrole.hoverrole',
-
     # Extension for providing Icelandic to English translation of mathematical terms
     # on mouse-over. See README in hoverrole folder.
-    'scrolldepth.scrolldepth'
-
+    'scrolldepth.scrolldepth',
+    'datacamp-extension.datacamp.datacamp'
+    # 
 ]
 
-# The mathjax path needs to be set to https in order to work on notendur.hi.is, it can be changed here to suit other needs 
-# (http://sphinx-doc.org/latest/ext/math.html#confval-mathjax_path)
 #mathjax_path = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-#mathjax_path = "MathJax.js"
 
+# Paths for js and css files used to enable custom extensions
 katex_path = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js'
 katex_render = 'http://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/contrib/auto-render.min.js'
 render_math = 'rendermath.js'
-
 katex_css = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css'
 
+datacamp_path = 'https://cdn.datacamp.com/datacamp-light-latest.min.js'
+
+sage_jquery_path = 'http://sagecell.sagemath.org/static/jquery.min.js'
+sage_path = 'http://sagecell.sagemath.org/static/embedded_sagecell.js'
+custom_sage_path = 'custom_sage.js'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
