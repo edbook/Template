@@ -20,12 +20,14 @@ There should now be a template folder in /home/user. The following folders are i
 * ggbextension
 * SphinxScrolldepth
 * hoverrole
+* katex-extension
 
-In each of these folders run the following commands: 
+In each of these folders (except sagecell-extension) run the following commands: 
 ```bash
 python3 setup.py build
 sudo python3 setup.py install
 ```
+In sagecell-extension run `sudo python3 setup.py install --user` instead of `sudo python3 setup.py install`
 Finally, go to the template folder and run the command:
 ```bash
 make html
