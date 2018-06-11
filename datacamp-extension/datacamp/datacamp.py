@@ -5,10 +5,10 @@ try:
 except ImportError:
     from docutils.parsers.rst import Directive
 
- """
- UNDER CONSTRUCTION:
- 	Todo: -Various options that datacamp offers. -Enable Latex add on.
- """
+"""
+UNDER CONSTRUCTION:
+	Todo: -Various options that datacamp offers. -Enable Latex add on.
+"""
 
 class datacamp(nodes.General, nodes.Element):
 	pass

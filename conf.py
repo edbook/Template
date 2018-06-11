@@ -54,7 +54,7 @@ extensions = [
     # Extension for providing Icelandic to English translation of mathematical terms
     # on mouse-over. See README in hoverrole folder.
     'scrolldepth.scrolldepth',
-    'datacamp-extension.datacamp.datacamp'
+    'datacamp.datacamp'
     # 
 ]
 

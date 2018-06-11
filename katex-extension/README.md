@@ -23,6 +23,7 @@ render_math = 'rendermath.js'
 katex_css = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css'
 ```
 
+Add `katex-extension.katex.katex` or `katex.katex` to your extensions in `conf.py`. Note, in the list of extension, katex must come before sagecell.
 Finally move rendermath.js to the /_static directory in the root of your project. </br>
 Note that you can follow the when they issue the latest version at:
 https://github.com/Khan/KaTeX/releases
