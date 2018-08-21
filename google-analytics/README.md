@@ -12,15 +12,17 @@ More info on Scroll Depth: scrolldepth.parsnip.io
 1. Copy the google-analytics folder to you Sphinx Project.
 2. Navigate to google-analytics and run the following commands for Mac/Linux:
 
-	>>python setup.py build
+```bash
+$ python setup.py build
+$ sudo python setup.py install
+```
 
-	>>sudo python setup.py install
+If you're using windows run:
 
-If you're using windows run instead:
-
-	>>python setup.py build
-
-	>>python setup.py install
+```bash
+$ python setup.py build
+$ python setup.py install
+```
 
 3. Copy `jquery.scrolldepth.js` to your `_static` directory.
 4. Add `analytics.analytics` to your list of extensions in `conf.py`.
