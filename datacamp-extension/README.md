@@ -14,7 +14,8 @@ $ python setup.py build
 $ sudo python setup.py install
 ```
 Move `datacamp-custom.css` to `_static/css` in the root of your project. 
-Add `datacamp-extension.datacamp.datacamp` `datacamp.datacamp` to your extensions in `conf.py`. 
+Add `datacamp.datacamp` to your extensions in `conf.py`. 
+Add `datacamp_path = 'https://cdn.datacamp.com/datacamp-light-latest.min.js'` as a variable in `conf.py`
 ## How to use it
 * **Python**
 To install packages/libraries behind the scene use 

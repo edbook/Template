@@ -63,7 +63,8 @@ def latex_visit_sagecell_node(self, node):
     if node["img"] != None:
         self.body.append("\n\n")
         self.body.append("\\begin{center}\n")
-        self.body.append("\\includegraphics[width="+node['imgwidth']+",keepaspectratio=true]{"+node['img']+"}\n")
+        self.body.append("\\includegraphics[width="+node['imgwidth']+
+            ",keepaspectratio=true]{"+node['img']+"}\n")
         self.body.append("\n\end{center}")
 
 def latex_depart_sagecell_node(self, node):

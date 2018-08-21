@@ -26,15 +26,9 @@ def html_visit_math(self, node):
 
 
 def html_visit_displaymath(self, node):
-    isnumbered = False
     self.body.append('<div style="text-align: center;">\n')
+    
     if node['number']:
-        isnumbered = True
-        number = get_node_equation_number(self, node)
-        self.body.append('<h6 class="eqno" style="display:inline-block; padding:15px;">(%s)' % number)
-        self.add_permalink_ref(node, _('Permalink to this equation'))
-        self.body.append('</h6>')
-    if isnumbered:
         self.body.append(self.starttag(node, 'div', CLASS='math', STYLE='display:inline-block;'))
     else:
         self.body.append(self.starttag(node, 'div', CLASS='math'))
@@ -43,7 +37,6 @@ def html_visit_displaymath(self, node):
         self.body.append(self.encode(node['latex']))
         self.body.append('</div>')
         raise nodes.SkipNode
-    # necessary to e.g. set the id property correctly
 
 
     self.body.append(self.builder.config.mathjax_display[0])
@@ -67,6 +60,13 @@ def html_visit_displaymath(self, node):
 
     self.body.append(self.builder.config.mathjax_display[1])
     self.body.append('</div>\n')
+
+    if node['number']:
+        number = get_node_equation_number(self, node)
+        self.body.append('<h6 class="eqno">(%s)' % number)
+        self.add_permalink_ref(node, _('Varanlegur hlekkur'))
+        self.body.append('</h6>')
+
     self.body.append('</div>\n')
     raise nodes.SkipNode
 
@@ -85,10 +85,10 @@ def builder_inited(app):
                              'katex extension to work')
     elif not renderpath:
         raise ExtensionError('katex_render config value must be set for the '
-                             'katex_render extension to work')    
+                             'katex extension to work')    
     elif not mathpath:
         raise ExtensionError('render_math config value must be set for the '
-                             'render_math extension to work')                        
+                             'katex extension to work')                        
 
     if katexpath and renderpath and mathpath:
         app.add_javascript(katexpath)
@@ -103,7 +103,7 @@ def setup(app):
     try:
         mathbase_setup(app, (html_visit_math, None), (html_visit_displaymath, None))
     except ExtensionError:
-        raise ExtensionError('sphinxcontrib-katex.sphinxcontrib.katex: other math package is already loaded')
+        raise ExtensionError('katex.katex: other math package is already loaded')
 
 
     app.add_config_value('katex_path', None, False)

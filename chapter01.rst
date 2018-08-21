@@ -18,7 +18,7 @@ MathJax
 In text: :math:`\lim_{x\to a^-} f(x) = \pm \infty`, or
 
 .. math::
-	\overline{x}=\frac{M_{x=0}}{m} = \frac{\sum_{i=1}^n x_im_i}{\sum_{i=1}^n m_i}.
+	\overline{x}=\frac{M_{x=0}}{m} = \frac{\sum_{i=1}^n x_im_i}{\sum_{i=1}^n m_i}\mbox{asdfasdf}.
 
 
 Sage-cell extensions 
@@ -130,6 +130,12 @@ Python
 
 .. datacamp::
     :lang: python
+    :hidden:
+
+    fdsa = 25*25
+
+.. datacamp::
+    :lang: python
 
     import numpy as np
     import matplotlib.pyplot as plt
@@ -157,6 +163,13 @@ Python
 
 R
 ~~~
+
+.. datacamp::
+    :hidden:
+
+    asdf <- 123412341234
+    a <- 1
+
 
 .. datacamp::
     :lang: r
@@ -187,27 +200,8 @@ Auto-generated list of translated terms:
 
 .. hoverlist::
 
-Sphinx ScrollDepth Extension
+Google Analytics Extension
 ----------------------------
-This extension tracks how far users have scrolled on the page. When a new section is scrolled into view a Google Analytics event is fired. These events can be seen in real time in the Javascript console (Chrome: CTRL+Shift+I OR Options-> More Tools -> Developer Tools).
+This extension enables the use of Google Analytics by inserting the tracking code on each page (except the index) and by inserting your tracking ID inside conf.py you should be able to monitor the use of your site.
 
-Don't forget to replace the tracking code snippet with your own. Your tracking code can be found at analytics.google.com under Admin-> Tracking Info-> Tracking Code.
-
-Tracking PDF-downloads
-----------------------
-File downloads can be easily tracked with Google Analytics. See example below.
-
-The following code:
-
-.. code-block:: html
-
-    <a href="_static/NAME.pdf" onclick="var that=this;ga('send','event','Download','PDF',this.href);setTimeout(function(){location.href=that.href;},400);console.log('PDF-download tracked');return false;">PDF-útgáfa</a>
-
-Results in the link below with Google Analytics tracking. Try opening the Javascript Console (Chrome: CTRl+Shift+I) and clicking the link.
-
-.. raw:: html
-
-    <a href="_static/NAME.pdf" onclick="var that=this;ga('send','event','Download','PDF',this.href);setTimeout(function(){location.href=that.href;},400);console.log('PDF-download tracked');return false;">PDF-útgáfa</a>
-
-
-  
+This extension also tracks how far users have scrolled on the page. When a new section is scrolled into view a Google Analytics event is fired. These events can be seen in real time in the Javascript console (Chrome: CTRL+Shift+I OR Options-> More Tools -> Developer Tools).

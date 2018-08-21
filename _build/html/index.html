@@ -4,11 +4,14 @@
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
+
+
+
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to NAME’s documentation! &mdash; NAME 2015</title>
+  <title>Welcome to NAME’s documentation! &mdash; NAME 2018</title>
   
 
   
@@ -32,7 +35,7 @@
   
     <link rel="stylesheet" href="_static/css/datacamp-custom.css" type="text/css" />
   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc/dist/katex.min.css" type="text/css" />
   
 
   
@@ -59,7 +62,7 @@
 		    box-shadow: 5px 5px 8px #CCC;
 		}
 	</style>
-
+	<!-- End hoverrole.py css code -->
 
 	<style type="text/css">
 		.sagecell .CodeMirror-scroll {
@@ -69,31 +72,50 @@
 		.sagecell .CodeMirror {
 			height: auto;
 		}
+
+		/* - Begin equation reference style - */
+		h6.eqno{
+			display: inline-block;
+			padding-left: 10px;
+		}
+
+		h6 .headerlink{
+			display: inline-block !important;
+		}
+		h6 .headerlink:after{
+			visibility: hidden !important;
+		}
+		h6 .headerlink:hover:after{
+			visibility: visible !important;
+		}
+		.eqno:hover > .headerlink:after{
+			visibility: visible !important;
+		}
+
+		table > caption > .headerlink{
+			visibility: hidden !important;
+		}
+
+		table > caption > .headerlink{
+			visibility: hidden !important;
+		}
+		/* - End - */
+
 	</style>
+
 
     
         <link rel="index" title="Atriðaskrá"
               href="genindex.html"/>
         <link rel="search" title="Leit" href="search.html"/>
-    <link rel="top" title="NAME 2015" href="#"/>
+    <link rel="top" title="NAME 2018" href="#"/>
         <link rel="next" title="Chapter" href="chapter01.html"/>
 
+
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="../../resizegg.js"></script>
-    
-    <!-- ADD YOUR GOOGLE ANALYTICS TRACKING CODE HERE-->
-    <script>
-  		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  		ga('create', 'UA-29852053-2', 'auto');
-  		ga('send', 'pageview');
-
-	</script>
-
-    <script>top.scrolldepth_tags = []; </script>
+	<script type="text/javascript" src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+	<script>ggbAppletId = []; </script>
 
      
 
@@ -104,6 +126,7 @@
 </head>
 
 <body class="wy-body-for-nav" role="document">
+
 
   <div class="wy-grid-for-nav">
 
@@ -266,7 +289,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'2015',
+            VERSION:'2018',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
@@ -275,8 +298,8 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js"></script>
-      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/contrib/auto-render.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc/dist/katex.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc/dist/contrib/auto-render.min.js"></script>
       <script type="text/javascript" src="_static/rendermath.js"></script>
       <script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script>
       <script type="text/javascript" src="http://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
@@ -298,16 +321,15 @@
       });
   </script>
   
-<script src="_static/jquery.scrolldepth.js"></script>
-<script>
-    jQuery.scrollDepth({
-        percentage: false,
-        userTiming: false,
-        pixelDepth: false,
-        nonInteraction: false,
-        elements: top.scrolldepth_tags
-}); 
-</script>
+	
+    <script>
+        window.addEventListener("load", function(){
+            for(var i in ggbAppletId){
+                ggbAppletId[i].inject(i);
+            }
+        });
+    </script>
+    
 
 
 

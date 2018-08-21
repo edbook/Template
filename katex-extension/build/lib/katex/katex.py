@@ -26,15 +26,9 @@ def html_visit_math(self, node):
 
 
 def html_visit_displaymath(self, node):
-    isnumbered = False
     self.body.append('<div style="text-align: center;">\n')
+    
     if node['number']:
-        isnumbered = True
-        number = get_node_equation_number(self, node)
-        self.body.append('<h6 class="eqno" style="display:inline-block; padding:15px;">(%s)' % number)
-        self.add_permalink_ref(node, _('Permalink to this equation'))
-        self.body.append('</h6>')
-    if isnumbered:
         self.body.append(self.starttag(node, 'div', CLASS='math', STYLE='display:inline-block;'))
     else:
         self.body.append(self.starttag(node, 'div', CLASS='math'))
@@ -43,7 +37,6 @@ def html_visit_displaymath(self, node):
         self.body.append(self.encode(node['latex']))
         self.body.append('</div>')
         raise nodes.SkipNode
-    # necessary to e.g. set the id property correctly
 
 
     self.body.append(self.builder.config.mathjax_display[0])
@@ -67,6 +60,13 @@ def html_visit_displaymath(self, node):
 
     self.body.append(self.builder.config.mathjax_display[1])
     self.body.append('</div>\n')
+
+    if node['number']:
+        number = get_node_equation_number(self, node)
+        self.body.append('<h6 class="eqno">(%s)' % number)
+        self.add_permalink_ref(node, _('Varanlegur hlekkur'))
+        self.body.append('</h6>')
+
     self.body.append('</div>\n')
     raise nodes.SkipNode
 

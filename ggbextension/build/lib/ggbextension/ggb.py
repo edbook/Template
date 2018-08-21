@@ -3,6 +3,9 @@
 
 from docutils import nodes
 from docutils.parsers.rst import directives
+import string
+import random
+import inspect
 try:
     from sphinx.util.compat import Directive
 except ImportError:
@@ -12,11 +15,45 @@ except ImportError:
 class ggb(nodes.General, nodes.Element):
     pass
 
+def add_inject_code(app, pagename, templatename, context, doctree):
+
+    footer = context.get('footerscripttags', '')
+    script = context.get('scripttags', '')
+
+    script += "<script>ggbAppletId = []; </script>"
+
+    footer += """
+    <script>
+        window.addEventListener("load", function(){
+            for(var i in ggbAppletId){
+                ggbAppletId[i].inject(i);
+            }
+        });
+    </script>
+    """
+    context['footerscripttags'] = footer
+    context['scripttags'] = script
+
 def html_visit_ggb_node(self, node):
-    self.body.append("<figure>")
-    self.body.append("<iframe src='https://tube.geogebra.org/material/iframe/id/"+node['id']+"/width/"+node['width']+"/height/"+node['height']+"/border/888888/rc/false/ai/false/sdz/"+node['zoom_drag']+"/smb/false/stb/false/stbh/true/ld/false/sri/true/at/auto' width="+node['width']+" height="+node['height']+" frameborder='0'>")
-    self.body.append("</iframe>")
-    self.body.append("</figure>")
+    # Construct random ID string 64^11 to avoid clashing id's for each ggb frame
+    lst = [random.choice(string.ascii_letters + string.digits + "-_") for n in range(11)]
+    ID = "".join(lst)
+    
+    # Construct the div tag for the ggb frame and the script which produces the right ggb frame 
+    # according to parameters
+    self.body.append("<div id=\""+ID+"\" style=\"display: inline-block;\"></div>\n")
+    self.body.append("<script>\n")
+    self.body.append("var ggbApp_"+ID+" = new GGBApplet({\n")
+    self.body.append("\"appName\": \"graphing\", \n")
+    self.body.append("\"width\": "+node['width']+", \n")
+    self.body.append("\"height\": "+node['height']+", \n")
+    self.body.append("\"material_id\":\" "+node['id']+"\", \n")
+    self.body.append("\"preventFocus\": true, \n")
+    self.body.append("\"showResetIcon\": true, \n")
+    self.body.append("\"enableShiftDragZoom\": "+node['zoom_drag']+" \n")
+    self.body.append("}, true);\n")
+    self.body.append("ggbAppletId[\""+ID+"\"] = ggbApp_"+ID+";\n")
+    self.body.append("</script>")
 
 def html_depart_ggb_node(self, node):
     pass
@@ -59,3 +96,5 @@ class GGB(Directive):
 def setup(app):
     app.add_node(ggb,html = (html_visit_ggb_node, html_depart_ggb_node), latex = (tex_visit_ggb_node, tex_depart_ggb_node))
     app.add_directive('ggb',GGB)
+    app.connect('html-page-context', add_inject_code)
+
