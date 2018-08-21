@@ -1,32 +1,27 @@
-# SphinxScrolldepth
-A Sphinx Extension implementing the Scroll Depth extension for Google Analytics.
+# Google-Analytics extension
+A Sphinx Extension implementing Google Analytics and a custom Scroll Depth extension.
 
-This extension adds a HTML code snippet under each subsection in your Sphinx document. These code snippets define html elements which are then tracked using the Scroll Depth extension for Google Analytics.
+Upon calling this extension it produces a gtag tracking code for each site except index.html which is of no interest to us.
+
+This extension can furthermore add a HTML code snippet under each subsection in your Sphinx document. These code snippets define html elements which are then tracked using the Scroll Depth extension for Google Analytics. In `conf.py` set `enable_custom_scrolldepth = True` to enable. If disabled i.e. `enable_custom_scrolldepth = False` it will result in scroll events being fired in 25%, 50%, 75% and 100% intervals.
 
 More info on Scroll Depth: scrolldepth.parsnip.io
 
-How to find and analyze info from Scroll Depth: https://medium.com/google-analytics/hacking-google-analytics-24762924fbf8#.v5okjcm6o
 
 # Set up
-1. Copy the SphinxScrolldepth folder to you Sphinx Project.
-2. Navigate to SphinxScrollDepth and run the following commands:
+1. Copy the google-analytics folder to you Sphinx Project.
+2. Navigate to google-analytics and run the following commands for Mac/Linux:
 
 	>>python setup.py build
 
 	>>sudo python setup.py install
 
-3. Copy 'jquery.scrolldepth.js' to your '_static' directory.
-4. Add 'scrolldepth.scrolldepth' to your list of extensions in 'conf.py'.
-5. Copy 'layout.html' to your '_templates' directory. If there already exists a custom layout file then copy the contents of 'layout.html' to that file (be careful to copy each bit of code to the correct place in the file). Note that SphinxScrolldepth requires jQuery, make sure that jQuery is available.
-6. Add to 'layout.html' your Google Analytics tracking code to the indicated line. The Google Analytics tracking code can be found at analytics.google.com under ADMIN > Tracking Info > Tracking Code and should look similar to this:
+If you're using windows run instead:
 
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	>>python setup.py build
 
-  ga('create', 'UA-123455678-1', 'auto');
-  ga('send', 'pageview');
+	>>python setup.py install
 
-
-Note: By default only subsections are tracked. Scroll Depth supports tracking of other events of interest, e.g. Percentage-based tracking, User interaction and tracking of other website elements. These can be enabled in the 'layout.html' file. See scrolldepth.parsnip.io for more info.
+3. Copy `jquery.scrolldepth.js` to your `_static` directory.
+4. Add `analytics.analytics` to your list of extensions in `conf.py`.
+5. Note that `jquery.scrolldepth.js` requires jQuery, make sure that jQuery is available.

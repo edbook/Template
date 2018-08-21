@@ -17,13 +17,13 @@ $ sudo python setup.py install
 Add the following lines to the conf.py file in the root directory
 
 ```python
-katex_path = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js'
-katex_render = 'http://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/contrib/auto-render.min.js'
+katex_path = 'https://cdn.jsdelivr.net/npm/katex@0.10.0-rc/dist/katex.min.js'
+katex_render = 'https://cdn.jsdelivr.net/npm/katex@0.10.0-rc/dist/contrib/auto-render.min.js'
 render_math = 'rendermath.js'
-katex_css = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css'
+katex_css = 'https://cdn.jsdelivr.net/npm/katex@0.10.0-rc/dist/katex.min.css'
 ```
 
-Add `katex-extension.katex.katex` or `katex.katex` to your extensions in `conf.py`. Note, in the list of extension, katex must come before sagecell.
+Add `katex.katex` to your extensions in `conf.py`. NOTE, in the list of extension, katex must come before sagecell.
 Finally move rendermath.js to the /_static directory in the root of your project. </br>
 Note that you can follow the when they issue the latest version at:
 https://github.com/Khan/KaTeX/releases

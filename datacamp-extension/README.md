@@ -15,10 +15,10 @@ $ sudo python setup.py install
 ```
 Move `datacamp-custom.css` to `_static/css` in the root of your project. 
 Add `datacamp.datacamp` to your extensions in `conf.py`. 
-Add `datacamp_path = 'https://cdn.datacamp.com/datacamp-light-latest.min.js'` as a variable in `conf.py`
+Add `datacamp_path = 'https://cdn.datacamp.com/datacamp-light-latest.min.js'` to `conf.py`
 ## How to use it
 * **Python**
-To install packages/libraries behind the scene use 
+To install packages/libraries behind the scenes use 
 ```
 :library: datetime, numpy as np
 ```
@@ -53,7 +53,7 @@ Without the user knowing. It's also possible to import libraries with the rest o
     plt.show()
 ```
 * **R**
-To install packages/libraries behind the scene use 
+To install packages/libraries behind the scenes use 
 ```
 :library: datetime, numpy as np
 ```
