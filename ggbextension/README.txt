@@ -6,16 +6,24 @@ argument, a geogebra tube ID::
 The referenced geogebra applet will be embedded into HTML output.  
 Installation
 ============
-   1. Install this extension: 
+    1. Install this extension: 
 
     python setup.py build
     sudo python setup.py install  OR  python setup.py install --user
 
-   2. Move 'layout.html' and 'resizegg.js' to your '_templates' directory 
-    (if there is already a custom layout file then copy lines 2-7 of 
-    'layout.html' and paste to that file).    
+    2. Add '<script type="text/javascript" src="https://cdn.geogebra.org/apps/deployggb.js"></script>'
+    and '<script>ggbAppletId = []; </script>' to the header block of your layout.html file in the _templates directory  
 
-    3. Add 'ggbextension.ggb' to your extensions in 'conf.py'
+    3. Add the following code to the footer block of your layout.html file in the _templates directory
+        <script>
+            window.addEventListener("load", function(){
+                for(var i in ggbAppletId){
+                    ggbAppletId[i].inject(i);
+                }
+            });
+        </script>
+
+    4. Add 'ggbextension.ggb' to your extensions in 'conf.py'
 
 Options
 =======

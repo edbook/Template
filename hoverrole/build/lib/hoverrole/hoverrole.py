@@ -113,8 +113,8 @@ def make_hover_node(word,term,transNum,htmlLink,latexLink,latexIt):
     tranStr = ''
     for transl in translation:
         tranStr = tranStr + transl.decode('utf-8') + ", "
-    all_translations = tranStr[:-2] + "."
-    single_translation = translation[0].decode('utf-8') + "."
+    all_translations = tranStr[:-2]
+    single_translation = translation[0].decode('utf-8')
 
     # HTML snippet
     html = '<a '
