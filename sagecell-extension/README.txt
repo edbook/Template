@@ -7,7 +7,8 @@ Installation
         'python(3) setup.py build'
         'sudo python(3) setup.py install' OR 'python(3) setup.py install --user'
    2. Move 'layout.html' to your '_templates' directory. Change sagecell paths if necessary. Here you can also change the text on the sagecell evaluation buttons.
-   3. Add 'sagecell.sagecell' to your extensions in 'conf.py'
+   3. Add 'sagecell.sagecell' to your extensions in 'conf.py'. It may need to be 'sagecell-extension.sagecell.sagecell'
+   4. Finally move custom_sage.js to the /_static directory in the root of your project.
 
 
 How to use it
@@ -22,7 +23,11 @@ Example of usage::
 
 Options
 ======
-The lang option is set to 'r' if the code is to be interpreted as R code and 'octave' if the code is to be interpreted as Octave, otherwise the code is interpreted as Sage.
+The lang option is set to 
+'r' if the code is to be interpreted as R code and 
+'octave' if the code is to be interpreted as Octave and 
+'python' if the code is to be interpreted as Python, 
+otherwise the code is interpreted as Sage.
 
 Example:
 
