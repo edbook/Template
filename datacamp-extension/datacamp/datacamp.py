@@ -1,6 +1,6 @@
 from docutils import nodes
 from docutils.parsers.rst import directives
-from sphinx.application import ExtensionError
+from sphinx.errors import ExtensionError
 try:
     from sphinx.util.compat import Directive
 except ImportError:

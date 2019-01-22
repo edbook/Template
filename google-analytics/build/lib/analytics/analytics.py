@@ -10,7 +10,7 @@
 
 from docutils import nodes, utils
 from docutils.parsers.rst import Directive
-from sphinx.application import ExtensionError
+from sphinx.errors import ExtensionError
 
 class scrolldepth_node(nodes.General, nodes.Element):
 	pass
@@ -31,7 +31,7 @@ def add_tracking_code(app, pagename, templatename, context, doctree):
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
-		gtag('config', '"""+analytics_id+"""');
+		gtag('config', '"""+analytics_id+"""', { 'anonymize_ip': true, 'allow_display_features': false });
 	</script>
 	"""
 	script += "<script>top.scrolldepth_tags = []; </script>"

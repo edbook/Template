@@ -10,7 +10,7 @@
 
 from docutils import nodes, utils
 from docutils.parsers.rst import Directive
-from sphinx.application import ExtensionError
+from sphinx.errors import ExtensionError
 
 class scrolldepth_node(nodes.General, nodes.Element):
 	pass

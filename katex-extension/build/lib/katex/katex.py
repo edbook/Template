@@ -1,13 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-    sphinx.ext.mathjax
-    ~~~~~~~~~~~~~~~~~~
-    Allow `MathJax <http://mathjax.org/>`_ to be used to display math in
-    Sphinx's HTML writer -- requires the MathJax JavaScript library on your
-    webserver/computer.
-    :copyright: Copyright 2007-2016 by the Sphinx team, see AUTHORS.
-    :license: BSD, see LICENSE for details.
-"""
 
 from docutils import nodes
 
@@ -17,11 +8,17 @@ from sphinx.errors import ExtensionError
 from sphinx.ext.mathbase import setup_math as mathbase_setup
 from sphinx.ext.mathbase import get_node_equation_number
 
+def get_latex(node):
+    if 'latex' in node.attributes:
+        return node['latex'] 
+    else:
+        return node.astext()
+
 def html_visit_math(self, node):
     self.body.append(self.starttag(node, 'span', '', CLASS='math'))
-    self.body.append(self.builder.config.mathjax_inline[0] +
-                     self.encode(node['latex']) +
-                     self.builder.config.mathjax_inline[1] + '</span>')
+    self.body.append(self.builder.config.katex_inline[0] +
+                     self.encode(get_latex(node)) +
+                     self.builder.config.katex_inline[1] + '</span>')
     raise nodes.SkipNode
 
 
@@ -34,13 +31,14 @@ def html_visit_displaymath(self, node):
         self.body.append(self.starttag(node, 'div', CLASS='math'))
 
     if node['nowrap']:
-        self.body.append(self.encode(node['latex']))
+        self.body.append(self.encode(get_latex(node)))
         self.body.append('</div>')
         raise nodes.SkipNode
 
 
-    self.body.append(self.builder.config.mathjax_display[0])
-    parts = [prt for prt in node['latex'].split('\n\n') if prt.strip()]
+    self.body.append(self.builder.config.katex_display[0])
+    latex = get_latex(node)
+    parts = [prt for prt in latex.split('\n\n') if prt.strip()]
 
     if len(parts) > 1:  # Add alignment if there are more than 1 equation
         self.body.append(r' \begin{aligned}')
@@ -58,7 +56,7 @@ def html_visit_displaymath(self, node):
     if len(parts) > 1:  # Add alignment if there are more than 1 equation
         self.body.append(r'\end{aligned} ')
 
-    self.body.append(self.builder.config.mathjax_display[1])
+    self.body.append(self.builder.config.katex_display[1])
     self.body.append('</div>\n')
 
     if node['number']:
@@ -111,8 +109,8 @@ def setup(app):
     app.add_config_value('render_math', None, False)
 
     app.add_config_value('katex_css', None, 'html')
-    app.add_config_value('mathjax_inline', [r'\(', r'\)'], 'html')
-    app.add_config_value('mathjax_display', [r'\[', r'\]'], 'html')
+    app.add_config_value('katex_inline', [r'\(', r'\)'], 'html')
+    app.add_config_value('katex_display', [r'\[', r'\]'], 'html')
 
     app.connect('builder-inited', builder_inited)
 
