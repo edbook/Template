@@ -1,20 +1,87 @@
 # Instructions
 
 This is a template for a web-based textbook/lecture notes for the University of Iceland's mathematics department, using sphinx (see sphinx-doc.org).
+For the following instructions find out which version of python you are running by executing:
+```bash
+python --version
+```
+or
+```bash
+python3 --version
+```
+Either one will work fine as long as it is Python 3 but not Python 2.
 
-For ubuntu based distors run the following commands in the terminal:
+## Virtual environment
 
+To avoid dependencies clashing between projects it is best to create a virtual environment in which you will build your project. In this environment you will install all of the required dependencies without affecting other projects. Start by creating a directory which will become the root of your project, e.g. edbook. Open that directory.
+
+### Anaconda
+
+If you are using Anaconda run:
+```bash
+conda create --name <name-of-environment>
+```
+Activate your virtual environment by running in Linux or MacOS:
+```bash
+source activate <name-of-environment>
+```
+For Windows OS run:
+```bash
+activate <name-of-environment>
+```
+To deactivate the environment run:
+```bash
+source deactivate
+```
+```bash
+deactivate
+```
+For Linux/MacOS and Windows respectively.
+
+### Pip
+
+If you are using pip run:
+```bash
+python3 -m venv <name-of-environment>
+```
+Activate your virtual environment by running in Linux or MacOS:
+```bash
+source <name-of-environment>/bin/activate
+```
+For Windows OS run:
+```bash
+<name-of-environment>\Scripts\activate.bat
+```
+To deactivate the environment run:
+```bash
+deactivate
+```
+
+## Installing packages
+
+If you don't have git already start by installing git, either by running
+```bash
+sudo apt-get install git
+```
+for Linux/MacOS or by downloading and installing git from their website if you are using Windows.
+
+Within your virtual environment git clone the Template project by running:
+```bash
+git clone https://github.com/edbook/Template.git
+```
+If you intend to work on the Template repository it is good practice to create a new branch to work on by running
+```bash
+git checkout -b iss53
+```
+There should now be a template folder in /home/user.
+Now install all of the necessary packages needed to build the edbook project by running: 
 ```bash
 sudo apt-get install python3-sphinx
 sudo apt-get install python3-sphinx-rtd-theme
 sudo apt-get install python3-setuptools
 sudo apt-get install python3-sagecell
-sudo apt-get install git
 sudo apt-get install pandoc
-git clone https://github.com/edbook/template
 ```
-There should now be a template folder in /home/user.
-
 For Windows users the packages from above can be downloaded using [pip](https://pypi.org/project/pip/)
 
 Navigate to the template folder.
@@ -29,54 +96,61 @@ The following folders are in the template folder:
 * panoptoextension
 * datacamp-extension
 
-In each of these folders run the following commands:
+You can install every custom extension with a single command:
+```bash
+make extensioninstall
+```
+list of extensions can be found and modified in the file `extension_names`:
 
-Mac/Linux: 
+Install each one in Linux/MacOS with:
+```bash
+make singleinstall EX=name_of_extension
+```
+Install each one in Windows with:
+```bash
+make extensioninstall name_of_extension
+```
+Alternatively you can navigate to each of the extension folders and run for Linux/MacOS: 
 ```bash
 python3 setup.py build
 sudo python3 setup.py install
 ```
-
-Alternatively you can run the following to install every extension in one go, list of extensions can be found and modified in the file `extension_names`:
+Or Windows:
 ```bash
-make extensioninstall
+python(3) setup.py build
+python(3) setup.py install
 ```
 
-Or for each one
-```bash
-make singleinstall EX=name_of_extension
-```
-
-Windows:
-```bash
-python setup.py build
-python setup.py install
-```
-
-Alternatively you can run the following to install every extension in one go, list of extensions can be found and modified in the file `extension_names`
-```bash
-make extensioninstall
-```
-
-Or for each one
-```bash
-make extensioninstall name_of_extension
-```
-
-Finally you should be able to run the command:
+Finally you should be able to run the command to see if everything worked out:
 ```bash
 make html
 ```
 You should be able to produce the html files according to the .rst documents.
 
 If you get: `WARNING: extension 'sagecell.sagecell' has no setup() function; is it really a Sphinx extension module?`, go to sagecell-extension and run: 
-```
+```bash
 sudo python3 setup.py install --user
 ```
 
 You can now edit the template in /template/chapter01.rst and compile the html file with the make html command. The html pages are in /template/_build/html.
 
 Once you have edited your content run `make clean` before you build again with `make html`
+
+# Cloning other repositories for edbook
+
+To begin working on other courses for edbook, navigate back to your original project folder, which you created before cloning the Template repository.
+Make sure that your virtual environment is activated and clone whatever project you want to work on, for example:
+```bash
+git clone https://github.com/edbook/Numerical-analysis.git
+```
+Your project structure should now look something like this:
+```
+edbook                      # Project root
+└── Template                # Template repository
+└── Numerical-analysis      # Numerical analysis repository
+└── <name-of-environment>   # Virtual environment folder
+```
+You should now be able to build the html or pdf files for your project.
 
 Sphinx
 ======
