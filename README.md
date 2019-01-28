@@ -33,6 +33,7 @@ To deactivate the environment run:
 ```bash
 source deactivate
 ```
+or
 ```bash
 deactivate
 ```
@@ -71,9 +72,10 @@ git clone https://github.com/edbook/Template.git
 ```
 If you intend to work on the Template repository it is good practice to create a new branch to work on by running
 ```bash
-git checkout -b iss53
+git checkout -b <branch-name>
 ```
-There should now be a template folder in /home/user.
+There should now be a template folder in your project root folder.
+
 Now install all of the necessary packages needed to build the edbook project by running: 
 ```bash
 sudo apt-get install python3-sphinx
