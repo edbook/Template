@@ -12,13 +12,15 @@ Text
 Extensions
 ----------
 
-MathJax
-~~~~~~~
+Katex or MathJax
+~~~~~~~~~~~~~~~~
+Katex is faster in works for almost all latex syntax, there are documented cases of examples 
+known to cause troubles in the katex-extension sub-directory
 
 In text: :math:`\lim_{x\to a^-} f(x) = \pm \infty`, or
 
 .. math::
-    \overline{x}=\frac{M_{x=0}}{m} = \frac{\sum_{i=1}^n x_im_i}{\sum_{i=1}^n m_i}\mbox{asdfasdf}.
+    \overline{x}=\frac{M_{x=0}}{m} = \frac{\sum_{i=1}^n x_im_i}{\sum_{i=1}^n m_i}.
 
 
 Sage-cell extensions 
@@ -130,12 +132,6 @@ Python
 
 .. datacamp::
     :lang: python
-    :hidden:
-
-    fdsa = 25*25
-
-.. datacamp::
-    :lang: python
 
     import numpy as np
     import matplotlib.pyplot as plt
@@ -165,14 +161,8 @@ R
 ~~~
 
 .. datacamp::
-    :hidden:
-
-    asdf <- 123412341234
-    a <- 1
-
-
-.. datacamp::
     :lang: r
+    :height: 500
 
     options(scipen=999)  # turn-off scientific notation like 1e+48
     library(ggplot2)
