@@ -86,4 +86,5 @@ Without the user knowing. It's also possible to import libraries with the rest o
     gg
 ```
 R is the default language if :lang: option is not set.
+You can adjust height of the datacamp frame by inserting e.g. `:height: 300` for fixed 300 px height, if nothing is declared it is set to auto.
 If you want to use a package that is not available, create an issue on [datacamps github](https://github.com/datacamp/datacamp-light/issues) and they can install it (it's not possible to install packages at runtime).
