@@ -17,7 +17,7 @@ import shlex
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('.'))
 
 # -- General configuration ------------------------------------------------
 
@@ -29,10 +29,10 @@ import shlex
 # ones.
 
 extensions = [
-    'sphinx.ext.ifconfig',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.todo',
-    #'sphinx.ext.mathjax',
+    # 'sphinx.ext.ifconfig',
+    # 'sphinx.ext.intersphinx',
+    # 'sphinx.ext.todo',
+    # 'sphinx.ext.mathjax',
 
     # Katex is a substitute for mathjax, renders math much faster
     # Note: katex extension must come before sagecell to work properly
@@ -40,7 +40,7 @@ extensions = [
 
     # hieroglyph is used to generate html slides, needs to be installed for use,
     # see https://github.com/nyergler/hieroglyph
-    #'hieroglyph',
+    # 'hieroglyph',
 
     # Extension for embedding geogebra applets, see README.txt in ggbextension folder
     'ggbextension.ggb',
@@ -50,9 +50,9 @@ extensions = [
     'toggleblock.toggleBlock',
 
     # Extension for embedding sage cells (https://sagecell.sagemath.org/).
-    # See README.txt in sagecell-extension folder. 
+    # See README.txt in sagecell-extension folder.
     # Note: sagecell must not be listed before katex.katex
-    'sagecell.sagecell',
+    # 'sagecell.sagecell',
 
     # Extension for providing Icelandic to English translation of mathematical terms
     # on mouse-over. See README in hoverrole folder.
@@ -64,6 +64,9 @@ extensions = [
     # Extension for embedding datacamp-light which enables constructing simple programming exercises
     # in R and python, with much greater package support than sagecell in R
     'datacamp.datacamp',
+
+    # Extension for buttons
+    'button',
 
     # Extension that allows embedding panopto videos from rec.hi.is
     'panoptoextension.panopto'
@@ -126,10 +129,10 @@ release = '2018'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-# LANGUAGE SET TO ICELANDIC, CAN BE CHANGED: 
+# LANGUAGE SET TO ICELANDIC, CAN BE CHANGED:
 # (http://sphinx-doc.org/config.html#confval-language)
 language = 'is'
-locale_dirs = ['locale/'] 
+locale_dirs = ['locale/']
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -179,17 +182,17 @@ html_theme_path = ['_themes']
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
+# html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
-#html_theme_path = []
+# html_theme_path = []
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-#html_title = None
+# html_title = None
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-#html_short_title = None
+# html_short_title = None
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -210,35 +213,35 @@ html_static_path = ['_static']
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
 # directly to the root of the documentation.
-#html_extra_path = []
+# html_extra_path = []
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
-#html_last_updated_fmt = '%b %d, %Y'
+# html_last_updated_fmt = '%b %d, %Y'
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
-#html_use_smartypants = True
+# html_use_smartypants = True
 
-#html_add_permalinks = True
+# html_add_permalinks = True
 # Custom sidebar templates, maps document names to template names.
-#html_sidebars = {}
+# html_sidebars = {}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
-#html_additional_pages = {}
+# html_additional_pages = {}
 
 # If false, no module index is generated.
-#html_domain_indices = True
+# html_domain_indices = True
 
 # If false, no index is generated.
-#html_use_index = True
+# html_use_index = True
 
 # If true, the index is split into individual pages for each letter.
-#html_split_index = False
+# html_split_index = False
 
 # If true, links to the reST sources are added to the pages.
-#html_show_sourcelink = True
+# html_show_sourcelink = True
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 html_show_sphinx = False
@@ -249,20 +252,20 @@ html_show_copyright = False
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
 # base URL from which the finished HTML is served.
-#html_use_opensearch = ''
+# html_use_opensearch = ''
 
 # This is the file name suffix for HTML files (e.g. ".xhtml").
-#html_file_suffix = None
+# html_file_suffix = None
 
 # Language to be used for generating the HTML full-text search index.
 # Sphinx supports the following languages:
 #   'da', 'de', 'en', 'es', 'fi', 'fr', 'h', 'it', 'ja'
 #   'nl', 'no', 'pt', 'ro', 'r', 'sv', 'tr'
-#html_search_language = 'en'
+# html_search_language = 'en'
 
 # A dictionary with options for the search language support, empty by default.
 # Now only 'ja' uses this config value
-#html_search_options = {'type': 'default'}
+# html_search_options = {'type': 'default'}
 
 # The name of a javascript file (relative to the configuration directory) that
 # implements a search results scorer. If empty, the default will be used.
@@ -275,23 +278,23 @@ htmlhelp_basename = 'NAMEdoc'
 # SET PREFERENCES FOR LATEX OUTPUT HERE
 
 latex_elements = {
-# The paper size ('letterpaper' or 'a4paper').
-'papersize': 'a4paper',
+    # The paper size ('letterpaper' or 'a4paper').
+    'papersize': 'a4paper',
 
-# The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+    # The font size ('10pt', '11pt' or '12pt').
+    # 'pointsize': '10pt',
 
-# Additional stuff for the LaTeX preamble.
-'preamble': '''
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{hyperref}
+    # Additional stuff for the LaTeX preamble.
+    'preamble': '''
+\\usepackage{amsmath}
+\\usepackage{amssymb}
+\\usepackage{hyperref}
 ''',
 
-# Latex figure (float) alignment
-#'figure_align': 'htbp',
+    # Latex figure (float) alignment
+    # 'figure_align': 'htbp',
 
-'fncychap': '\\usepackage[Sonny]{fncychap}',
+    'fncychap': '\\usepackage[Sonny]{fncychap}',
 
 }
 
@@ -302,14 +305,14 @@ latex_elements = {
 # SET DOCUMENT TITLE AND AUTHOR FOR LATEX OUTPUT HERE
 
 latex_documents = [
-  (master_doc, 'NAME.tex', 'NAME Documentation',
-   'AUTHOR', 'manual'),
+    (master_doc, 'NAME.tex', 'NAME Documentation',
+     'AUTHOR', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
 # LOGO FOR LATEX TITLE PAGE IS SET TO UNIVERSITY OF ICELAND RAUNVÍSINDADEILD LOGO
-latex_logo  = '_static/hi_horiz_raunvisindadeild.png'
+latex_logo = '_static/hi_horiz_raunvisindadeild.png'
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
@@ -326,8 +329,6 @@ latex_logo  = '_static/hi_horiz_raunvisindadeild.png'
 
 # If false, no module index is generated.
 #latex_domain_indices = True
-
-
 
 
 # -- Options for manual page output ---------------------------------------
@@ -349,9 +350,9 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'NAME', 'NAME Documentation',
-   author, 'NAME', 'One line description of project.',
-   'Miscellaneous'),
+    (master_doc, 'NAME', 'NAME Documentation',
+     author, 'NAME', 'One line description of project.',
+     'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.

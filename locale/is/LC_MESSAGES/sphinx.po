@@ -530,7 +530,7 @@ msgstr "Sjá einnig"
 
 #: sphinx/locale/__init__.py:165
 msgid "Tip"
-msgstr "Ábending"
+msgstr "Dæmi"
 
 #: sphinx/locale/__init__.py:166
 msgid "Warning"

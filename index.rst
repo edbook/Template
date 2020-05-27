@@ -9,9 +9,11 @@ Welcome to NAME's documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+  :maxdepth: 2
+  :numbered: 
+  :glob:
 
-   chapter01
+  chapter*
 
 Indices and tables
 ==================
@@ -19,4 +21,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
