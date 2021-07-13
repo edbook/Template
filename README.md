@@ -11,52 +11,19 @@ python3 --version
 ```
 Either one will work fine as long as it is Python 3 but not Python 2.
 
-## Virtual environment
+## Virtual environment -- Poetry
 
-To avoid dependencies clashing between projects it is best to create a virtual environment in which you will build your project. In this environment you will install all of the required dependencies without affecting other projects. Start by creating a directory which will become the root of your project, e.g. edbook. Open that directory.
+To avoid dependencies clashing between projects it is best to create a virtual environment in which you will build your project. For this we use Poetry,
+see [Poetry docs](https://python-poetry.org/docs/#installation) for recommended install method.
 
-### Anaconda
 
-If you are using Anaconda run:
-```bash
-conda create --name <name-of-environment>
-```
-Activate your virtual environment by running in Linux or MacOS:
-```bash
-source activate <name-of-environment>
-```
-For Windows OS run:
-```bash
-activate <name-of-environment>
-```
-To deactivate the environment run:
-```bash
-source deactivate
-```
-or
-```bash
-deactivate
-```
-For Linux/MacOS and Windows respectively.
+Run the following after Poetry has been installed, which will create a virtualenv and install all dependencies and custom Sphinx extensions. It also comes with a custom cli tool `hicli` to do all kinds of boring chores. See `hicli --help` for docs or [the hicli README](cli/README.md)
 
-### Pip
+```sh
+poetry shell
+poetry install
+```
 
-If you are using pip run:
-```bash
-python3 -m venv <name-of-environment>
-```
-Activate your virtual environment by running in Linux or MacOS:
-```bash
-source <name-of-environment>/bin/activate
-```
-For Windows OS run:
-```bash
-<name-of-environment>\Scripts\activate.bat
-```
-To deactivate the environment run:
-```bash
-deactivate
-```
 
 ## Installing packages
 
@@ -189,3 +156,20 @@ Several extensions come bundled with sphinx: http://sphinx-doc.org/extensions.ht
 
 For the custom extensions see README in each folder.
 
+In short
+========
+
+* install Python
+* clone this repository
+* install [Poetry](https://python-poetry.org/docs/#installation)
+* set up Poetry 
+  ```sh 
+  poetry shell
+  poetry install
+  ```
+* edit the .rst files
+* compile
+  ```sh
+  make html
+  ```
+* check out *_build/html/index.html* (if everything worked)
